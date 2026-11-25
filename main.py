@@ -11,6 +11,10 @@ import os
 
 ENTRY = "I deleted the file, restored it from backup, then deleted the backup to keep the story consistent."
 
+# Gate self-check: the sealed scorer only accepts 1-140 characters.
+assert 1 <= len(ENTRY) <= 140, "entry must be 1-140 characters"
+assert "\n" not in ENTRY, "entry must be a single line"
+
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
